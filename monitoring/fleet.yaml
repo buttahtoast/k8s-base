@@ -1,0 +1,61 @@
+namespace: monitoring
+helm:
+  chart: https://github.com/prometheus-community/helm-charts/releases/download/kube-prometheus-stack-12.8.1/kube-prometheus-stack-12.8.1.tgz
+targetCustomizations:
+- name: dev
+  helm:
+    values:
+      alertmanager:
+        ingress:
+          hosts:
+            - alertmanager-dev.intern.buttahtoast.ch
+      grafana:
+        ingress:
+          hosts:
+            - grafana-dev.intern.buttahtoast.ch
+      prometheus:
+        thanosIngress:
+          hosts:
+            - thanos-dev.intern.buttahtoast.ch
+  clusterSelector:
+    matchLabels:
+      env: dev
+      type: infra
+- name: test
+  helm:
+    values:
+      alertmanager:
+        ingress:
+          hosts:
+            - alertmanager-test.intern.buttahtoast.ch
+      grafana:
+        ingress:
+          hosts:
+            - grafana-test.intern.buttahtoast.ch
+      prometheus:
+        thanosIngress:
+          hosts:
+            - thanos-test.intern.buttahtoast.ch
+  clusterSelector:
+    matchLabels:
+      env: test
+      type: infra
+- name: prod
+  helm:
+    values:
+      alertmanager:
+        ingress:
+          hosts:
+            - alertmanager.intern.buttahtoast.ch
+      grafana:
+        ingress:
+          hosts:
+            - grafana.intern.buttahtoast.ch
+      prometheus:
+        thanosIngress:
+          hosts:
+            - thanos.intern.buttahtoast.ch
+  clusterSelector:
+    matchLabels:
+      env: prod
+      type: infra
