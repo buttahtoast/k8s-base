@@ -1,0 +1,16 @@
+namespace: sealed
+helm:
+  chart: https://github.com/bitnami-labs/sealed-secrets/releases/download/helm-v1.13.2-r2/sealed-secrets-1.13.2-r2.tgz
+targetCustomizations:
+  - name: dev
+    clusterSelector:
+      matchLabels:
+        env: dev
+  - name: test
+      clusterSelector:
+        matchLabels:
+          env: test
+  - name: prod
+      clusterSelector:
+        matchLabels:
+          env: prod
