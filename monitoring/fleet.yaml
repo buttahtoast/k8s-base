@@ -1,4 +1,4 @@
-namespace: monitoring
+defaultNamespace: monitoring
 helm:
   chart: https://github.com/prometheus-community/helm-charts/releases/download/kube-prometheus-stack-12.8.1/kube-prometheus-stack-12.8.1.tgz
 targetCustomizations:
