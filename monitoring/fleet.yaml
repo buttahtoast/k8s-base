@@ -7,14 +7,17 @@ targetCustomizations:
     values:
       alertmanager:
         ingress:
+          enable: true
           hosts:
             - alertmanager-dev.intern.buttahtoast.ch
       grafana:
         ingress:
+          enable: true
           hosts:
             - grafana-dev.intern.buttahtoast.ch
       prometheus:
         thanosIngress:
+          enable: true
           hosts:
             - thanos-dev.intern.buttahtoast.ch
   clusterSelector:
@@ -25,15 +28,18 @@ targetCustomizations:
   helm:
     values:
       alertmanager:
+        enable: true
         ingress:
           hosts:
             - alertmanager-test.intern.buttahtoast.ch
       grafana:
         ingress:
+          enable: true
           hosts:
             - grafana-test.intern.buttahtoast.ch
       prometheus:
         thanosIngress:
+          enable: true
           hosts:
             - thanos-test.intern.buttahtoast.ch
   clusterSelector:
@@ -45,14 +51,17 @@ targetCustomizations:
     values:
       alertmanager:
         ingress:
+          enable: true
           hosts:
             - alertmanager.intern.buttahtoast.ch
       grafana:
         ingress:
+          enable: true
           hosts:
             - grafana.intern.buttahtoast.ch
       prometheus:
         thanosIngress:
+          enable: true
           hosts:
             - thanos.intern.buttahtoast.ch
   clusterSelector:
