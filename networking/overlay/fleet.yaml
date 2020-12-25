@@ -1,4 +1,4 @@
-namespace: k8s-base-networking-overly
+defaultNamespace: k8s-base-networking-overly
 helm:
   chart: citrix-node-controller
   repo: https://citrix.github.io/citrix-helm-charts/
