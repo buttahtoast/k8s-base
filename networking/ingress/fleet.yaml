@@ -1,0 +1,44 @@
+defaultNamespace: k8s-baste-networking-ingress
+helm:
+  repo: https://citrix.github.io/citrix-helm-charts/
+  chart: citrix-multi-cluster-ingress-controller
+  values:
+    mcIngress:
+      enabled: true
+      nsPort: 443
+      nsProtocol: HTTPS
+      entityPrefix: k8s
+      image: 'quay.io/citrix/citrix-k8s-ingress-controller:1.11.3'
+      pullPolicy: IfNotPresent
+      license:
+        accept: 'Yes'
+      logLevel: INFO
+      localRegion: glk
+      localCluster: test
+      sitedata:
+        - {}
+      crds:
+        install: true
+    cic:
+      image: 'quay.io/citrix/citrix-k8s-ingress-controller:1.11.3'
+      pullPolicy: IfNotPresent
+      license:
+        accept: 'Yes'
+      ingressClass:
+        - internet
+      logLevel: INFO
+      crds:
+        install: true
+      enabled: true
+      nsPort: 443
+      nsProtocol: HTTPS
+      nsIP: 10.124.1.100
+      adcCredentialSecret: citrix-node-controller-cred
+      entityPrefix: k8s
+      exporter:
+        image: 'quay.io/citrix/citrix-adc-metrics-exporter:1.4.6'
+        pullPolicy: IfNotPresent
+        ports:
+          containerPort: 8888
+        required: true
+      serviceClass: []

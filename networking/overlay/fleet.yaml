@@ -4,8 +4,8 @@ helm:
   repo: https://citrix.github.io/citrix-helm-charts/
   values:
     license.accept: yes
-    nsIP: netsclaer.intern.buttahtoast.ch
-    vtepIP: vtep.netscaler.intern.buttahtoast.ch
+    nsIP: 10.124.1.100
+    vtepIP: 10.124.1.101
     network: 192.168.1.0/24
     vxlan:
       id: 800
