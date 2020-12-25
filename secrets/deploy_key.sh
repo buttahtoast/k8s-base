@@ -4,7 +4,7 @@
 
 export PRIVATEKEY="mytls.key"
 export PUBLICKEY="mytls.crt"
-export NAMESPACE="k8s-base-secrets"
+export NAMESPACE="buttahtoast-system"
 export SECRETNAME="mycustomkeys"
 
 [ ! -f ./${PRIVATEKEY}] && echo Private does not exists && exit1

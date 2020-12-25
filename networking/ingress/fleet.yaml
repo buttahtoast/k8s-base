@@ -1,4 +1,4 @@
-defaultNamespace: k8s-baste-networking-ingress
+defaultNamespace: buttahtoast-system
 helm:
   repo: https://citrix.github.io/citrix-helm-charts/
   chart: citrix-cloud-native
@@ -21,6 +21,25 @@ helm:
       logLevel: INFO
       crds:
         install: true
+      exporter:
+        image: 'quay.io/citrix/citrix-adc-metrics-exporter:1.4.6'
+        pullPolicy: IfNotPresent
+        ports:
+          containerPort: 8888
+        required: true
+    cnc:
+      enabled: true
+      image: 'quay.io/citrix/citrix-k8s-node-controller:2.1.0'
+      pullPolicy: IfNotPresent
+      vxlan:
+        id: 800
+        port: 799
+      nsIP: 10.124.1.100
+      adcCredentialSecret: citrix-node-controller-cred
+      license:
+        accept: 'Yes'
+      vtepIP: 10.124.1.101
+      network: 192.168.1.0/24
     coe:
       enabled: true
       image: 'quay.io/citrix/citrix-observability-exporter:1.2.001'
@@ -30,6 +49,3 @@ helm:
       timeseries:
         enabled: true
         nodePort: 30002
-      ns_tracing:
-        enabled: true
-        server: 'zipkin:9411/api/v1/spans'

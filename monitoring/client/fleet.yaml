@@ -1,0 +1,13 @@
+namespace: buttahtoast-system
+
+values:
+  pushgateway:
+    enabled: false
+  alertmanager:
+    enabled: false
+  grafana:
+    enabled: false
+  prometheus:
+    prometheusSpec:
+
+      
