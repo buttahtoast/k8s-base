@@ -1,7 +1,7 @@
 namespace: k8s-base-networking-overly
 helm:
   chart: citrix-node-controller
-  repo: citrix https://citrix.github.io/citrix-helm-charts/
+  repo: https://citrix.github.io/citrix-helm-charts/
   values:
     license.accept: yes
     nsIP: netsclaer.intern.buttahtoast.ch
