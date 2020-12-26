@@ -1,5 +1,4 @@
 defaultNamespace: citrix-ingress
-namespace: citrix-ingress
 helm:
   repo: https://citrix.github.io/citrix-helm-charts/
   chart: citrix-cloud-native
