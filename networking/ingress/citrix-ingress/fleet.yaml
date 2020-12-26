@@ -1,7 +1,8 @@
-defaultNamespace: buttahtoast-system
+defaultNamespace: citrix-ingress
 helm:
   repo: https://citrix.github.io/citrix-helm-charts/
   chart: citrix-cloud-native
+  releaseName: citrix-ingress
   values:
     cic:
       enabled: true
