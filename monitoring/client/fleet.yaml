@@ -1,13 +1,15 @@
 namespace: buttahtoast-system
-
-values:
-  pushgateway:
-    enabled: false
-  alertmanager:
-    enabled: false
-  grafana:
-    enabled: false
-  prometheus:
-    prometheusSpec:
-
-      
+helm:
+  repo: https://prometheus-community.github.io/helm-charts
+  chart: kube-prometheus-stack
+  version: 12.8.1
+  values:
+    pushgateway:
+      enabled: false
+    alertmanager:
+      enabled: false
+    grafana:
+      enabled: false
+    prometheus:
+      ingress:
+        enabled: true
